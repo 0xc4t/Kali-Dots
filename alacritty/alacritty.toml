@@ -1,0 +1,29 @@
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 6
+
+[font.bold]
+family = "Monospace"
+style = "Bold"
+
+[font.bold_italic]
+family = "Monospace"
+style = "Bold"
+
+[font.italic]
+family = "Monospace"
+style = "Bold"
+
+[font.normal]
+family = "Monospace"
+style = "Bold"
+
+[window]
+opacity = 0.95
+padding = { x = 5, y = 5 }
