@@ -22,8 +22,7 @@
 sudo apt install kali-desktop-i3-gaps kali-desktop-i3 alacritty polybar cava dmenu feh
 ```
 
-## Burpsuite
+## Neovim
 
-![image](https://github.com/user-attachments/assets/1deb99cc-d60a-4a68-abc6-8d35a6306938)
-
+![image](https://github.com/user-attachments/assets/e9bfe415-7ed6-41e7-90b6-9b08564a50da)
 
