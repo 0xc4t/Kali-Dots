@@ -10,13 +10,14 @@ gaps outer 5
 set $mod Mod4
 
 exec_always picom --experimental-backends
-exec_always feh --bg-fill /home/xc4t/Downloads/wallpaper/wall.png
+exec_always feh --bg-fill /home/x0rc4t/Downloads/wallpaper/wall.png
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 # NOTE - Customize with your device
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xrandr --output HDMI-2 --mode 1920x1080 --rate 144.00 --primary
 
 bindsym Print exec flameshot gui
 
@@ -40,7 +41,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -99,6 +100,9 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+
+# burpsuite for pentest
+bindsym $mod+b exec burpsuite
 
 set $ws1 "1"
 set $ws2 "2"
