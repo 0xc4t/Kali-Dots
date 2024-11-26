@@ -2,9 +2,6 @@
 
 ![image](https://github.com/user-attachments/assets/58a49c1e-416a-404e-ab86-b35216f1b2af)
 
-![image](https://github.com/user-attachments/assets/61268690-9e6a-47e1-b086-dae72cd5126f)
-
-
 ### [!] If you don't want to use rofi, you can use the dmenu. 
 
 ## Requirements
@@ -23,6 +20,8 @@ sudo apt install kali-desktop-i3-gaps kali-desktop-i3 alacritty polybar cava dme
 ```
 
 ## Neovim
+![image](https://github.com/user-attachments/assets/07306040-5304-4003-bfc2-98be00381312)
 
-![image](https://github.com/user-attachments/assets/e9bfe415-7ed6-41e7-90b6-9b08564a50da)
 
+## New
+![image](https://github.com/user-attachments/assets/36bc93b4-a32a-482d-b778-962da37dc397)
