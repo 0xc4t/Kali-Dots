@@ -2,28 +2,25 @@ import = [
   "~/.config/alacritty/catppuccin-mocha.toml"
 ]
 
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+unfocused_hollow = false
+thickness = 0.15
+
 [env]
 TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
 
 [font]
-size = 6
-
-[font.bold]
-family = "Monospace"
-style = "Bold"
-
-[font.bold_italic]
-family = "Monospace"
-style = "Bold"
-
-[font.italic]
-family = "Monospace"
-style = "Bold"
-
-[font.normal]
-family = "Monospace"
-style = "Bold"
+normal = { family = "JetBrainsMono Nerd Font", style = "bold" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+size = 11.5
 
 [window]
-opacity = 0.95
-padding = { x = 5, y = 5 }
+opacity = 0.92
+padding = { x = 6, y = 6 }
+dynamic_padding = true
+
