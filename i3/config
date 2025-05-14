@@ -1,12 +1,16 @@
 for_window [class=".*"] border pixel 2
 
+
+gaps top 28
 gaps inner 6
 gaps outer 5
 
 set $mod Mod4
 
 exec_always picom --experimental-backends
+# exec_always picom
 exec feh --bg-fill /home/xc4t/.config/wallpaper/37.png
+# exec nitrogen --restore 
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec --no-startup-id xfce4-clipman -d
@@ -16,8 +20,8 @@ exec --no-startup-id xfce4-clipman -d
 exec_always --no-startup-id xinput set-prop 9 "libinput Accel Speed" 0.6
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
-# exec --no-startup-id xrandr --output HDMI-2 --mode 1920x1080 --rate 119.88 --primary --above eDP-1 
 exec --no-startup-id xrandr --output DP-2 --mode 1920x1080 --rate 144.00 --above eDP-1 --primary 
+
 bindsym Print exec flameshot gui
 
 font pango:JetBrains Mono Bold 10
@@ -50,7 +54,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
 floating_modifier $mod
 tiling_drag modifier titlebar
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id dmenu_run -b
 bindsym $mod+j focus left
