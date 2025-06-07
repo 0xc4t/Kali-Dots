@@ -3,24 +3,21 @@ for_window [class=".*"] border pixel 2
 
 gaps top 28
 gaps inner 6
-gaps outer 5
+gaps outer 6
 
 set $mod Mod4
 
 exec_always picom --experimental-backends
-# exec_always picom
-exec feh --bg-fill /home/xc4t/.config/wallpaper/37.png
-# exec nitrogen --restore 
+exec feh --bg-fill /home/xc4t/.config/wallpaper/catppuccin-wallpapers/minimalistic/magenta-cat.png
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec --no-startup-id xfce4-clipman -d
-
-
+exec xrandr --output DP-1 --mode 1920x1080 --rate 144.00 --above eDP-1 --primary
 
 exec_always --no-startup-id xinput set-prop 9 "libinput Accel Speed" 0.6
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xrandr --output DP-2 --mode 1920x1080 --rate 144.00 --above eDP-1 --primary 
+
 
 bindsym Print exec flameshot gui
 
@@ -54,7 +51,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
 floating_modifier $mod
 tiling_drag modifier titlebar
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec /usr/local/bin/kitty
 bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id dmenu_run -b
 bindsym $mod+j focus left
@@ -167,9 +164,29 @@ set $crust     #11111b
 
 
 # target                 title     bg     text     indicator    border
-client.focused           $mantle   $base  $mantle  $mauve	$mauve
-client.focused_inactive  $overlay0 $base  $text    $overlay0	$overlay0
-client.unfocused         $overlay0 $base  $text    $overlay0	$overlay0
+client.focused           $mauve    $base  $text	   $mauve	$mauve
+client.focused_inactive  $mauve    $base  $text    $mantle	$mantle
+client.unfocused         $mantle   $base  $text    $overlay0	$overlay0
 client.urgent            $peach    $base  $peach   $overlay0	$peach
 client.placeholder       $overlay0 $base  $text    $overlay0	$overlay0
-client.background        $base
+client.background        $mantle
+
+
+# bar {
+#  font pango:JetBrains Mono Bold 10
+#  status_command i3status
+  
+#  position top
+#  colors {
+#    background         #11111b
+#    statusline         $text
+#    focused_statusline $text
+#    focused_separator  #11111b
+
+    # target           border bg        text
+#    focused_workspace  $base  $mauve     $crust
+#    active_workspace   $base  $surface2 $text
+#    inactive_workspace $base  #11111b     $text
+#    urgent_workspace   $base  $red      $crust
+#  }
+#}
