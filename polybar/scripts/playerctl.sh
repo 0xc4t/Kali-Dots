@@ -1,26 +1,22 @@
 #!/bin/bash
 
-ICON_PLAY="󰌳"
-ICON_PAUSE="󰌳" 
-ICON_STOP="󰌳"
+ICON="󰌳"
 PLAYER="spotify"
+
+if ! pgrep -x "$PLAYER" > /dev/null; then
+  echo "%{F#cba6f7}$ICON%{F-} Spotify No Played"
+  exit 0
+fi
 
 STATUS=$(playerctl --player=$PLAYER status 2>/dev/null)
 
-if [[ "$STATUS" == "Playing" ]]; then
-  SYMBOL="%{F#cba6f7}$ICON_PLAY%{F-}"
-elif [[ "$STATUS" == "Paused" ]]; then
-  SYMBOL="%{F#cba6f7}$ICON_PAUSE%{F-}"
-elif [[ "$STATUS" == "Stopped" ]]; then
-  SYMBOL="%{F#cba6f7}$ICON_STOP%{F-}"
-else
-  echo "" && exit 0
-fi
+SYMBOL="%{F#cba6f7}$ICON%{F-}"
 
 META=$(playerctl --player=$PLAYER metadata --format '{{ artist }} - {{ title }}' 2>/dev/null)
 
-if [[ -n "$META" ]]; then
-  echo "$SYMBOL $META"
-else
-  echo ""
+MAXLEN=30
+if [[ ${#META} -gt $MAXLEN ]]; then
+  META="${META:0:$MAXLEN}..."
 fi
+
+echo "$SYMBOL $META"
