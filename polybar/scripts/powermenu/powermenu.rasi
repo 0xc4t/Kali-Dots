@@ -1,6 +1,6 @@
 configuration {
     location:                       0;
-    font:                           "JetBrainsMono Nerd Font 13-";
+    font:                           "JetBrainsMono Nerd Font 13";
 }
 
 * {
