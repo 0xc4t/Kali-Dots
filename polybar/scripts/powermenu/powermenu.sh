@@ -1,19 +1,17 @@
 #!/bin/env bash
 
-lock=""
-logout=""
-shutdown=""
-reboot="󰜉"
-sleep=""
+lock=" "
+logout=" "
+shutdown=" "
+sleep=" "
 
 selected_option=$(echo "$lock
 $logout
-$reboot
 $sleep
 $shutdown" | rofi -dmenu\
                   -i\
                   -p "Power"\
-		  -theme "/home/xc4t/.config/rofi/powermenu/powermenu.rasi")
+		 -theme "/home/0xc4t/.config/polybar/scripts/powermenu/powermenu.rasi")
 
 if [ "$selected_option" == "$lock" ]
 then
