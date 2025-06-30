@@ -1,13 +1,9 @@
 for_window [class=".*"] border pixel 2
-
 gaps inner 10
 gaps outer 5
-
 set $mod Mod4
 
 exec --no-startup-id pulseaudio --start
-
-
 exec_always picom --experimental-backends
 exec feh --bg-fill /home/0xc4t/.config/wallpaper/magenta-cat.png
 exec_always --no-startup-id killall polybar
@@ -17,7 +13,6 @@ exec xrandr --output DP-1 --mode 1920x1080 --rate 144.00 --above eDP-1 --primary
 exec --no-startup-id xinput set-prop 10 "libinput Accel Speed" 0.1
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
-
 
 bindsym Print exec flameshot gui
 
@@ -40,7 +35,6 @@ bindsym $mod+l exec --no-startup-id i3lock --blur=5 \
        --time-font="JetBrains Mono" --date-font="JetBrains Mono" \
 
 
-set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -51,6 +45,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
 floating_modifier $mod
 tiling_drag modifier titlebar
+
 bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id dmenu_run -b
@@ -135,57 +130,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $rosewater #f5e0dc
-set $flamingo  #f2cdcd
-set $pink      #f5c2e7
 set $mauve     #cba6f7
-set $red       #f38ba8
-set $maroon    #eba0ac
 set $peach     #fab387
-set $yellow    #f9e2af
-set $green     #a6e3a1
-set $teal      #94e2d5
-set $sky       #89dceb
-set $sapphire  #74c7ec
-set $blue      #89b4fa
-set $lavender  #b4befe
+set $red       #f38ba8
 set $text      #cdd6f4
-set $subtext1  #bac2de
-set $subtext0  #a6adc8
-set $overlay2  #9399b2
-set $overlay1  #7f849c
 set $overlay0  #6c7086
-set $surface2  #585b70
-set $surface1  #45475a
-set $surface0  #313244
 set $base      #1e1e2e
 set $mantle    #181825
-set $crust     #11111b
-
 
 # target                 title     bg     text     indicator    border
-client.focused           $mauve    $base  $text	  $mauve	$mauve
-client.focused_inactive  $mauve    $base  $text    $mantle	$mantle
-client.unfocused         $mantle   $base  $text    $overlay0	$mantle
-client.urgent            $peach    $base  $peach   $overlay0	$red
-client.placeholder       $overlay0 $base  $text    $overlay0	$overlay0
+client.focused           $mauve    $base  $text    $mauve       $mauve
+client.focused_inactive  $mauve    $base  $text    $mantle      $mantle
+client.unfocused         $mantle   $base  $text    $overlay0    $mantle
+client.urgent            $peach    $base  $peach   $overlay0    $red
+client.placeholder       $overlay0 $base  $text    $overlay0    $overlay0
 client.background        $mantle
-
-# bar {
-#  font pango:JetBrains Mono Bold 10
-#  status_command i3status
-  
-#  position top
-#  colors {
-#    background         #11111b
-#    statusline         $text
-#    focused_statusline $text
-#    focused_separator  #11111b
-
-    # target           border bg        text
-#    focused_workspace  $base  $mauve     $crust
-#    active_workspace   $base  $surface2 $text
-#    inactive_workspace $base  #11111b     $text
-#    urgent_workspace   $base  $red      $crust
-#  }
-#}
