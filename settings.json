@@ -52,7 +52,6 @@
     "window.controlsStyle": "hidden",
     "workbench.statusBar.visible": false,
     "workbench.editor.editorActionsLocation": "hidden",
-    "workbench.layoutControl.enabled": false,
     "workbench.activityBar.location": "hidden",
     "window.menuBarVisibility": "compact",
     "chat.commandCenter.enabled": false,
@@ -61,6 +60,11 @@
     "C_Cpp.loggingLevel": "None",
     "go.toolsManagement.autoUpdate": false,
     "go.useLanguageServer": true,
-    "go.toolsManagement.autoDetectGopath": false
+    "go.toolsManagement.autoDetectGopath": false,
+    "explorer.confirmDelete": false,
+    "files.associations": {
+        "*.cpp": "cpp"
+    },
+    "workbench.layoutControl.enabled": false
 
 }
