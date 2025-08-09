@@ -1,4 +1,4 @@
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 3
 gaps inner 10
 gaps outer 5
 set $mod Mod4
@@ -13,6 +13,7 @@ exec xrandr --output DP-1 --mode 1920x1080 --rate 144.00 --above eDP-1 --primary
 exec --no-startup-id xinput set-prop 10 "libinput Accel Speed" 0.1
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id dunst
 
 bindsym Print exec flameshot gui
 
@@ -20,7 +21,7 @@ font pango:JetBrains Mono Bold 10
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 
-bindsym $mod+l exec --no-startup-id i3lock --blur=5 \
+bindsym $mod+l exec --no-startup-id i3lock --blur=10 \
        --inside-color=00000000 \
        --ring-color=cba6f7 \
        --line-color=00000000 \
@@ -34,11 +35,11 @@ bindsym $mod+l exec --no-startup-id i3lock --blur=5 \
        --clock --time-color=ffffff --date-color=ffffff \
        --time-font="JetBrains Mono" --date-font="JetBrains Mono" \
 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% 
+bindsym XF86AudioMute exec --no-startup-id ~/.local/bin/toggle-audio.sh
+bindsym XF86AudioMicMute exec --no-startup-id ~/.local/bin/mic.sh
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 bindsym XF86MonBrightnessUp exec brightnessctl s +10%
 bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
@@ -130,18 +131,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $mauve     #cba6f7
+set $mauve     #2a273f
 set $peach     #fab387
 set $red       #f38ba8
 set $text      #cdd6f4
 set $overlay0  #6c7086
 set $base      #1e1e2e
-set $mantle    #181825
+set $mantle    #2a273f
 
 # target                 title     bg     text     indicator    border
 client.focused           $mauve    $base  $text    $mauve       $mauve
 client.focused_inactive  $mauve    $base  $text    $mantle      $mantle
-client.unfocused         $mantle   $base  $text    $overlay0    $mantle
+client.unfocused         $mauve   $base  $text    $overlay0    $mantle
 client.urgent            $peach    $base  $peach   $overlay0    $red
 client.placeholder       $overlay0 $base  $text    $overlay0    $overlay0
 client.background        $mantle
